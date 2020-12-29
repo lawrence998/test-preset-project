@@ -1,0 +1,20 @@
+/**
+ *
+ * @authors liwb (lwbhtml@gmail.com)
+ * @date    2018/6/5 上午10:43
+ * @description 定义项目所需常量
+ */
+
+const TIMEOUT = 30000;
+const PAGE_NUM = 15;
+const UPLOAD_PREFIX = 'upload/';
+const HOME_PREFIX = 'home/';
+const BASE_PREFIX = 'baseUrl';
+
+export {
+  TIMEOUT,
+  PAGE_NUM,
+  UPLOAD_PREFIX,
+  HOME_PREFIX,
+  BASE_PREFIX
+};
