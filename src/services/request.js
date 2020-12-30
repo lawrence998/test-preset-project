@@ -13,7 +13,6 @@ import autoMatchBaseUrl from './autoMatchBaseUrl';
 import { TIMEOUT, BASE_PREFIX } from '@/constant';
 import { addPending, removePending } from './pending';
 import { Message } from 'element-ui';
-import { domainName } from '@/config';
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
@@ -78,7 +77,6 @@ function checkStatus (response) {
  */
 const axiosConfig = {
   success: (config) => {
-    console.log('axiosConfig-config: ', config);
     // 在请求开始前，对之前的请求做检查取消操作
     removePending(config);
     // 将当前请求添加到 pending 中
@@ -108,7 +106,6 @@ const axiosResponse = {
     return Promise.resolve(checkStatus(response));
   },
   error: (error) => {
-    console.log('axiosResponse-error: ', error);
     const { response, code } = error;
     if (axios.isCancel(error)) {
       console.error('repeated request: ' + error.message);
@@ -165,7 +162,7 @@ export default async function request ({
   isMock = false
 }) {
   try {
-    const baseURL = autoMatchBaseUrl(domainName[prefix], url, isMock);
+    const baseURL = autoMatchBaseUrl(prefix, url, isMock);
 
     const formatHeaders = { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', ...headers };
 

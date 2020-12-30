@@ -15,7 +15,7 @@ import './services/mock';
 import './assets/style/app.less';
 
 /* eslint-disable */
-Vue.config.productionTip = process.env.NODE_ENV === 'production';
+Vue.config.productionTip = process.env.NODE_ENV !== 'development';
 
 /* eslint-disable no-new */
 new Vue({

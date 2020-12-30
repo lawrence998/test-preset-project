@@ -62,7 +62,7 @@
    */
   // 工具类
   import { formatDate } from 'utils';
-  import { getDemo } from 'services/api';
+  import { getDemo, getTest, getCache } from 'services/api';
 
   export default {
     data () {
@@ -75,19 +75,17 @@
     created () {
       this.movieComingSoon();
       this.mockTest();
+      this.cacheTest();
     },
 
     methods: {
-      movieComingSoon () {
-        const data = {};
-        this.$services.octocat({
-          method: 'get',
-          data
-        }).then((res) => {
-          console.log('接口请求成功：' + JSON.stringify(res, null, 2));
-        }).catch((err) => {
-          console.log('接口请求异常：' + err);
-        });
+      async movieComingSoon () {
+        try {
+          const res = await getTest();
+          console.log('movieComingSoon-res: ', res);
+        } catch (error) {
+          console.log('movieComingSoon-error: ', error);
+        }
       },
 
       async mockTest() {
@@ -96,6 +94,15 @@
           console.log('res: ', res);
         } catch (error) {
           console.log('error: ', error);
+        }
+      },
+
+      async cacheTest() {
+        try {
+          const res = await getCache();
+          console.log('cacheTest-res: ', res);
+        } catch (error) {
+          console.log('cacheTest-error: ', error);
         }
       }
     }

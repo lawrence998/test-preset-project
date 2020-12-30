@@ -13,3 +13,19 @@ export function getDemo() {
     }
   };
 }
+
+// 缓存demo接口
+export function getCache() {
+  return {
+    url: 'mock/test/getCache',
+    type: 'get',
+    data: {
+      msg: 'success',
+      code: 0,
+      data: {
+        token: '4344323121398'
+      },
+      success: true
+    }
+  };
+}

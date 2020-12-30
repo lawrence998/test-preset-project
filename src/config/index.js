@@ -10,7 +10,7 @@ switch (process.env.NODE_ENV) {
       baseUrl: 'http://demo-dev.com'
     };
     break;
-  case 'testing':
+  case 'test':
       domainName = {
         baseUrl: 'http://demo-test.com'
       };
