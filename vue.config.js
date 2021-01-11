@@ -17,7 +17,7 @@ const resolve = (dir) => {
 };
 
 const isProd = () => {
-  return process.env.NODE_ENV !== 'development';
+  return process.env.NODE_ENV  === 'production';
 };
 
 // 获取 svn 信息
@@ -245,7 +245,7 @@ module.exports = {
 
     // optimization
     config
-      .when(process.env.NODE_ENV !== 'development',
+      .when(process.env.NODE_ENV === 'production',
         config => {
           config
             .plugin('ScriptExtHtmlWebpackPlugin')

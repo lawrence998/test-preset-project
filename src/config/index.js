@@ -4,17 +4,17 @@
  */
 // 域名地址
 let domainName = {};
-switch (process.env.NODE_ENV) {
+switch (process.env.VUE_APP_ENVIRONMENT) {
   case 'development':
     domainName = {
       baseUrl: 'http://demo-dev.com'
     };
     break;
   case 'test':
-      domainName = {
-        baseUrl: 'http://demo-test.com'
-      };
-      break;
+    domainName = {
+      baseUrl: 'http://demo-test.com'
+    };
+    break;
   case 'beta':
     domainName = {
       baseUrl: 'https://demo-beta.demo.com'

@@ -7,7 +7,6 @@ import './router/router.interceptor';
 import './components/global';
 import './icons';
 import './filters';
-import './services';
 import './vendor/element';
 import './vue-install/vueInstall';
 import './services/mock';
